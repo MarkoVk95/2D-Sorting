@@ -1,0 +1,11 @@
+import React, { Component } from 'react'
+
+export default class Header extends Component {
+    render() {
+        return (
+            <div className="container text-center">
+                Header
+            </div>
+        )
+    }
+}
