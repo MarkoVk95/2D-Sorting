@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './js/reducers'
 import Header from "./js/components/Header/";
+import SortingTable from "./js/components/SortingTable/";
 
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__
@@ -14,6 +15,7 @@ if (insertPoint)
     ReactDOM.render(
         <Provider store={store}>
             <Header />
+            <SortingTable />
         </Provider>,
         insertPoint);
 
