@@ -37,7 +37,7 @@ export default class Header extends Component {
                         100
                     </li>
                     <li className="nav-item">
-                        <button type="button" className="btn btn-outline-success">START</button>
+                        <button type="button" className="btn btn-outline-danger">START</button>
                     </li>
                 </ul>
             </nav>
