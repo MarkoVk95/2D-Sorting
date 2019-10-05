@@ -4,3 +4,10 @@ export const newArray = array => (
         array
     }
 );
+
+export const changeAlgorithm = algorithm => (
+    {
+        type: "CHANGE_ALGORITHM",
+        algorithm
+    }
+);

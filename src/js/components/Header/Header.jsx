@@ -5,6 +5,7 @@ export default class Header extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.changeAlgorithm = this.changeAlgorithm.bind(this);
     }
 
     handleChange(e) {
@@ -12,22 +13,28 @@ export default class Header extends Component {
         newArray(Math.floor((parseInt(e.target.value))));
     }
 
+    changeAlgorithm(e) {
+        const { changeAlgorithm } = this.props;
+        changeAlgorithm(e.target.innerHTML);
+    }
+
     render() {
+        const { algorithm } = this.props;
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                 <a className="navbar-brand" href="#">2D-Sorting</a>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Bubble Sort</a>
+                        <a className={`nav-link ${algorithm === 'Bubble Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Bubble Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Selection Sort</a>
+                        <a className={`nav-link ${algorithm === 'Selection Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Selection Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Merge Sort</a>
+                        <a className={`nav-link ${algorithm === 'Merge Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Merge Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Quick Sort</a>
+                        <a className={`nav-link ${algorithm === 'Quick Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Quick Sort</a>
                     </li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
@@ -47,5 +54,7 @@ export default class Header extends Component {
 
 
 Header.propTypes = {
-    newArray: PropTypes.string.isRequired
+    algorithm: PropTypes.string,
+    newArray: PropTypes.func.isRequired,
+    changeAlgorithm: PropTypes.func.isRequired
 };
