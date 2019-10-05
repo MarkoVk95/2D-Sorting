@@ -1,9 +1,10 @@
 import Header from './Header.jsx'
 import { connect } from 'react-redux'
-import { newArray } from '../../actions';
+import { newArray, changeAlgorithm } from '../../actions';
 
 const mapStateToProps = state => ({
-    array: state.array
+    array: state.array,
+    algorithm: state.algorithm
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
             array.push(Math.floor(Math.random() * 999));
         }
         dispatch(newArray(array));
+    },
+    changeAlgorithm: (algorithm) => {
+        dispatch(changeAlgorithm(algorithm));
     }
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Header);
