@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 export default class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        const { newArray } = this.props;
+        newArray(Math.floor((parseInt(e.target.value))));
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -20,9 +31,9 @@ export default class Header extends Component {
                     </li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
-                    <li className="nav-item d-flex justify-content-center align-items-center mx-3 text-light">
+                    <li className="nav-item d-flex justify-content-center align-items-center mx-5 text-light">
                         0
-                        <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
+                        <input type="range" onChange={this.handleChange} min="1" max="100" className="slider" id="myRange" />
                         100
                     </li>
                     <li className="nav-item">
@@ -33,3 +44,8 @@ export default class Header extends Component {
         )
     }
 }
+
+
+Header.propTypes = {
+    newArray: PropTypes.string.isRequired
+};
