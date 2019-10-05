@@ -20,6 +20,11 @@ export default class Header extends Component {
                     </li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
+                    <li className="nav-item d-flex justify-content-center align-items-center mx-3 text-light">
+                        0
+                        <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
+                        100
+                    </li>
                     <li className="nav-item">
                         <button type="button" className="btn btn-outline-success">START</button>
                     </li>
