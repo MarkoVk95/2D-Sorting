@@ -6,6 +6,7 @@ import rootReducer from './js/reducers'
 import Header from "./js/components/Header/";
 import SortingTable from "./js/components/SortingTable/";
 
+import './resources/css/index.css'
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__
     && window.__REDUX_DEVTOOLS_EXTENSION__());
