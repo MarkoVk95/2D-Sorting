@@ -1,4 +1,4 @@
-import { setStarted, resetCurrentArray, addCurrentIndex, addSwapIndex, resetSwapArray, addSortedIndex, newArray } from "../actions";
+import { setStarted, resetCurrentArray, addCurrentIndex, addSwapIndex, resetSwapArray, addSortedIndex, newArray } from "../../actions";
 
 export const bubbleSort = (toSortArray, dispatch) => {
     let i = 0,
@@ -55,3 +55,4 @@ const swap = (array, i, j) => {
     array[i] = array[j];
     array[j] = k;
 }
+

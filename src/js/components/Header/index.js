@@ -1,7 +1,7 @@
 import Header from './Header.jsx'
 import { connect } from 'react-redux'
 import { newArray, changeAlgorithm, setStarted, resetSortedArray, resetSwapArray } from '../../actions';
-import { bubbleSort } from '../../sort'
+import { bubbleSort } from '../../sort/bubbleSort'
 const mapStateToProps = state => ({
     array: state.array,
     algorithm: state.algorithm,
