@@ -1,4 +1,4 @@
-const algorithm = (state = [], action) => {
+const algorithm = (state = "", action) => {
 
     switch (action.type) {
         case "CHANGE_ALGORITHM":
