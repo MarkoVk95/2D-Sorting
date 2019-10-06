@@ -56,8 +56,8 @@ export default class Header extends Component {
                 <ul className="nav navbar-nav ml-auto">
                     <li className="nav-item d-flex justify-content-center align-items-center mx-5 text-light">
                         1
-                        <input type="range" onChange={this.handleChange} ref={this.sliderRef} min="1" max="100" className="slider" id="myRange" />
-                        100
+                        <input type="range" onChange={this.handleChange} ref={this.sliderRef} defaultValue="50" min="1" max="200" className="slider" id="myRange" />
+                        200
                     </li>
                     <li className="nav-item">
                         <button type="button" onClick={this.handleStart} className={`btn btn-outline-danger ${started ? 'disabled': (algorithm && array.length > 0) ? '': 'disabled'}`}>START</button>
