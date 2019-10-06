@@ -2,7 +2,7 @@ const array = (state = [], action) => {
 
     switch (action.type) {
         case "NEW_ARRAY":
-            return action.array
+            return [...action.array]
         default:
             return state
     }
