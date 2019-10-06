@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
     newArray: (size) => {
         let array = [];
         while (array.length < size) {
-            array.push(Math.floor(Math.random() * 999));
+            array.push(Math.floor(Math.random() * 200));
         }
         dispatch(newArray(array));
     },
