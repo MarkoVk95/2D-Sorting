@@ -20,17 +20,20 @@ export default class SortingTable extends Component {
 
         let startPoint = (1000/bracket)*((bracket-array.length)/2);
         
+        const {currentIndex, sortedIndex, swapIndex} = this.props;
+
         return (
             <div className="container d-flex justify-content-center my-5">
                 <svg height="600px" width="1000px">
                     {array.length ? array.map((current, i) => {
-
-
                         const x = i === 0 ? startPoint + margin / 2 : (i * width + i * margin + startPoint + margin / 2);
                         const y = (600 - (3 * current));
+                        const rgb = swapIndex.includes(i) ? 'rgb(213, 173, 230)' :
+                                         currentIndex.includes(i) ? 'rgb(255, 165, 0)' :
+                                         sortedIndex.includes(i) ? 'rgb(0, 128, 0)' : 'rgb(173, 216, 230)' ;
                         return (
                             <g key={i} transform={`translate(${x},${y})`}>
-                                <rect height={current * 3 + "px"} width={width} style={{ fill: 'rgb(173, 216, 230)' }}>
+                                <rect height={current * 3 + "px"} width={width} style={{ fill: rgb }}>
 
                                 </rect>
                             </g>
@@ -43,5 +46,8 @@ export default class SortingTable extends Component {
 }
 
 SortingTable.propTypes = {
-    array: PropTypes.array.isRequired
+    array: PropTypes.array.isRequired,
+    currentIndex: PropTypes.array.isRequired,
+    swapIndex: PropTypes.array.isRequired,
+    sortedIndex: PropTypes.array.isRequired
 };
