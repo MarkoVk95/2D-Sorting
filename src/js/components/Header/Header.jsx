@@ -6,6 +6,13 @@ export default class Header extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.changeAlgorithm = this.changeAlgorithm.bind(this);
+        this.sliderRef = React.createRef();
+        
+    }
+
+    componentDidMount() {
+        const { newArray } = this.props;
+        newArray(Math.floor((parseInt(this.sliderRef.current.value))));
     }
 
     handleChange(e) {
@@ -19,7 +26,7 @@ export default class Header extends Component {
     }
 
     render() {
-        const { algorithm } = this.props;
+        const { algorithm, array } = this.props;
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                 <a className="navbar-brand" href="#">2D-Sorting</a>
@@ -39,12 +46,12 @@ export default class Header extends Component {
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
                     <li className="nav-item d-flex justify-content-center align-items-center mx-5 text-light">
-                        0
-                        <input type="range" onChange={this.handleChange} min="1" max="100" className="slider" id="myRange" />
+                        1
+                        <input type="range" onChange={this.handleChange} ref={this.sliderRef} min="1" max="100" className="slider" id="myRange" />
                         100
                     </li>
                     <li className="nav-item">
-                        <button type="button" className="btn btn-outline-danger">START</button>
+                        <button type="button" className={`btn btn-outline-danger ${(algorithm && array.length > 0) ? '': 'disabled'}`}>START</button>
                     </li>
                 </ul>
             </nav>
@@ -55,6 +62,7 @@ export default class Header extends Component {
 
 Header.propTypes = {
     algorithm: PropTypes.string,
+    array: PropTypes.array.isRequired,
     newArray: PropTypes.func.isRequired,
     changeAlgorithm: PropTypes.func.isRequired
 };
