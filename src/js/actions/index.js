@@ -11,3 +11,10 @@ export const changeAlgorithm = algorithm => (
         algorithm
     }
 );
+
+export const setStarted = started => (
+    {
+        type: "SET_STARTED",
+        started
+    }
+);

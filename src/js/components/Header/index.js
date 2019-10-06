@@ -1,10 +1,11 @@
 import Header from './Header.jsx'
 import { connect } from 'react-redux'
-import { newArray, changeAlgorithm } from '../../actions';
+import { newArray, changeAlgorithm, setStarted } from '../../actions';
 
 const mapStateToProps = state => ({
     array: state.array,
-    algorithm: state.algorithm
+    algorithm: state.algorithm,
+    started: state.started
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,6 +18,9 @@ const mapDispatchToProps = dispatch => ({
     },
     changeAlgorithm: (algorithm) => {
         dispatch(changeAlgorithm(algorithm));
+    },
+    setStarted: (started) => {
+        dispatch(setStarted(started));
     }
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Header);
