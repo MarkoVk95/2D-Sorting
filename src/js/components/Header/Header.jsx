@@ -8,7 +8,7 @@ export default class Header extends Component {
         this.changeAlgorithm = this.changeAlgorithm.bind(this);
         this.handleStart = this.handleStart.bind(this);
         this.sliderRef = React.createRef();
-        
+
     }
 
     componentDidMount() {
@@ -23,34 +23,40 @@ export default class Header extends Component {
 
     changeAlgorithm(e) {
         const { started, changeAlgorithm } = this.props;
-        if(!started)
-        changeAlgorithm(e.target.innerHTML);
+        if (!started)
+            changeAlgorithm(e.target.innerHTML);
     }
 
     handleStart() {
-        const {algorithm, array, setStarted } = this.props;
-        if(algorithm && array.length > 0)
+        const { algorithm, array, setStarted } = this.props;
+        if (algorithm && array.length > 0)
             setStarted(true, algorithm, array);
 
     }
 
     render() {
-        const { algorithm,array, started } = this.props;
+        const { algorithm, array, started } = this.props;
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                 <a className="navbar-brand" href="#">2D-Sorting</a>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className={`nav-link ${started && algorithm !== 'Bubble Sort' ? 'text-muted':''} ${algorithm === 'Bubble Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Bubble Sort</a>
+                        <a className={`nav-link ${started && algorithm !== 'Bubble Sort' ? 'text-muted' : ''} ${algorithm === 'Bubble Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Bubble Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className={`nav-link ${started && algorithm !== 'Insertion Sort'? 'text-muted':''} ${algorithm === 'Insertion Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Insertion Sort</a>
+                        <a className={`nav-link ${started && algorithm !== 'Insertion Sort' ? 'text-muted' : ''} ${algorithm === 'Insertion Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Insertion Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className={`nav-link ${started && algorithm !== 'Merge Sort' ? 'text-muted':''} ${algorithm === 'Merge Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Merge Sort</a>
+                        <a className={`nav-link ${started && algorithm !== 'Merge Sort' ? 'text-muted' : ''} ${algorithm === 'Merge Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Merge Sort</a>
                     </li>
-                    <li className="nav-item">
-                        <a className={`nav-link ${started && algorithm !== 'Quick Sort' ? 'text-muted':''} ${algorithm === 'Quick Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Quick Sort</a>
+                    <li className="nav-item dropdown">
+                        <a className={`nav-link dropdown-toggle ${started && (algorithm !== 'Quick Sort' || algorithm !== '') ? 'text-muted' : ''} ${(algorithm == 'Quick Sort' || algorithm == 'Randomized Quick Sort') ? 'text-danger' : ''}`} href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Quick Sort
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a className={`dropdown-item ${started && algorithm !== 'Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Quick Sort' ? 'text-danger' : ''} `} href="#" onClick={this.changeAlgorithm} >Quick Sort</a>
+                            <a className={`dropdown-item ${started && algorithm !== 'Randomized Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Randomized Quick Sort' ? 'text-danger' : ''} `} href="#" onClick={this.changeAlgorithm}>Randomized Quick Sort</a>
+                        </div>
                     </li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
@@ -60,7 +66,7 @@ export default class Header extends Component {
                         200
                     </li>
                     <li className="nav-item">
-                        <button type="button" onClick={this.handleStart} className={`btn btn-outline-danger ${started ? 'disabled': (algorithm && array.length > 0) ? '': 'disabled'}`}>START</button>
+                        <button type="button" onClick={this.handleStart} className={`btn btn-outline-danger ${started ? 'disabled' : (algorithm && array.length > 0) ? '' : 'disabled'}`}>START</button>
                     </li>
                 </ul>
             </nav>
