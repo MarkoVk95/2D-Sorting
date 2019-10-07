@@ -11,23 +11,23 @@ export const quickSort = (toSortArray, dispatch) => {
 const quickSortHelper = (array, left, right, actionsArray) => {
     console.log("left: " + left + " right: " + right);
     if (left < right) {
-        
+
         const index = partition(array, left, right, actionsArray);
         quickSortHelper(array, left, index - 1, actionsArray);
         quickSortHelper(array, index + 1, right, actionsArray);
-    } else actionsArray.push(["addToSorted",[left]]); 
+    } else actionsArray.push(["addToSorted", [left]]);
 };
 
 const partition = (array, left, right, actionsArray) => {
     actionsArray.push(["resetSwapArray"]);
-    
+
     const pivot = array[right];
     actionsArray.push(["currentIndex", [right]]);
     let i = left - 1;
     for (let j = left; j < right; j++)
         if (array[j] <= pivot) {
             i++;
-            actionsArray.push(["swapIndex", [i,j]]);
+            actionsArray.push(["swapIndex", [i, j]]);
             swap(array, i, j);
             actionsArray.push(["setArray", [...array]]);
             actionsArray.push(["resetSwapArray"]);
@@ -38,3 +38,25 @@ const partition = (array, left, right, actionsArray) => {
     actionsArray.push(["setArray", [...array]]);
     return i;
 }
+
+export const randomizedQuickSort = (toSortArray, dispatch) => {
+    let array = [...toSortArray],
+        actionsArray = [];
+    randomizedQuickSortHelper(array, 0, array.length - 1, actionsArray);
+    actionsArray.push(["resetSwapArray"]);
+    printArray(actionsArray, dispatch, array);
+};
+
+const randomizedQuickSortHelper = (array, left, right, actionsArray) => {
+    if (left < right) {
+        const index = randomizedPartition(array, left, right, actionsArray);
+        randomizedQuickSortHelper(array, left, index - 1, actionsArray);
+        randomizedQuickSortHelper(array, index + 1, right, actionsArray);
+    } else actionsArray.push(["addToSorted", [left]]);
+};
+
+const randomizedPartition = (array, left, right, actionsArray) => {
+    const random = Math.floor(Math.random() * (right - left) + left);
+    swap(array, right, random);
+    return partition(array, left, right, actionsArray);
+};
