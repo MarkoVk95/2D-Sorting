@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import rootReducer from './js/reducers'
 import Header from "./js/components/Header/";
 import SortingTable from "./js/components/SortingTable/";
+import Footer from "./js/components/Footer/";
 
 import './resources/css/index.css'
 
@@ -17,6 +18,7 @@ if (insertPoint)
         <Provider store={store}>
             <Header />
             <SortingTable />
+            <Footer />
         </Provider>,
         insertPoint);
 
