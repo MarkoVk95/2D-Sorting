@@ -15,7 +15,6 @@ export const bubbleSort = (toSortArray, dispatch) => {
         }
         actionsArray.push(["addToSorted", [array.length - i - 1]]); //COLOR SORTED ELEMENT TO RED
     }
-    console.log(actionsArray);
     printArray(actionsArray, dispatch, array);
 }
 
