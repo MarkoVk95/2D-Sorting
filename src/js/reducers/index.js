@@ -5,6 +5,7 @@ import started from './started'
 import currentIndex from './current'
 import sortedIndex from './sortedIndex'
 import swapIndex from './swap'
+import theme from './theme'
 
 export default combineReducers(
     {
@@ -13,6 +14,7 @@ export default combineReducers(
         started,
         currentIndex,
         sortedIndex,
-        swapIndex
+        swapIndex,
+        theme
     }
 )

@@ -7,7 +7,7 @@ export default class SortingTable extends Component {
     }
 
     render() {
-        const { array } = this.props;
+        const { array, theme } = this.props;
         const width = array.length > 100 ? 4 :
             array.length > 50 ? 8 :
                 array.length > 10 ? 16 : 80;
@@ -23,7 +23,7 @@ export default class SortingTable extends Component {
         const {currentIndex, sortedIndex, swapIndex} = this.props;
 
         return (
-            <div className="container d-flex justify-content-center my-5">
+            <div className="container-fluid d-flex justify-content-center py-5" style={{background: theme }}>
                 <svg height="600px" width="1000px">
                     {array.length ? array.map((current, i) => {
                         const x = i === 0 ? startPoint + margin / 2 : (i * width + i * margin + startPoint + margin / 2);
@@ -49,5 +49,6 @@ SortingTable.propTypes = {
     array: PropTypes.array.isRequired,
     currentIndex: PropTypes.array.isRequired,
     swapIndex: PropTypes.array.isRequired,
-    sortedIndex: PropTypes.array.isRequired
+    sortedIndex: PropTypes.array.isRequired,
+    theme: PropTypes.string.isRequired
 };

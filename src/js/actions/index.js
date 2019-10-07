@@ -57,3 +57,10 @@ export const resetCurrentArray = () => (
         type: "RESET_CURRENT_ARRAY"
     }
 );
+
+export const changeTheme = (theme) => (
+    {
+        type: "CHANGE_THEME",
+        theme
+    }
+);
