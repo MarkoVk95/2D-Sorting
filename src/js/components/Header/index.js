@@ -2,6 +2,7 @@ import Header from './Header.jsx'
 import { connect } from 'react-redux'
 import { newArray, changeAlgorithm, setStarted, resetSortedArray, resetSwapArray } from '../../actions';
 import { bubbleSort } from '../../sort/bubbleSort'
+import { mergeSort } from '../../sort/mergeSort';
 const mapStateToProps = state => ({
     array: state.array,
     algorithm: state.algorithm,
@@ -28,8 +29,11 @@ const mapDispatchToProps = dispatch => ({
             case "Bubble Sort":
                 bubbleSort(array, dispatch);
                 break;
+            case "Merge Sort":
+                mergeSort(array, dispatch);
+                break;
             default:
-                    dispatch(setStarted(false));
+                dispatch(setStarted(false));
                 break;
         }
     }
