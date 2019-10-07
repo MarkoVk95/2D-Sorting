@@ -1,5 +1,4 @@
-import { setStarted, resetCurrentArray, addCurrentIndex, addSwapIndex, resetSwapArray, addSortedIndex, newArray } from "../../actions";
-
+import { swap, printArray } from '../utilities'
 export const bubbleSort = (toSortArray, dispatch) => {
     let i = 0,
         array = [...toSortArray],
@@ -20,39 +19,4 @@ export const bubbleSort = (toSortArray, dispatch) => {
     printArray(actionsArray, dispatch, array);
 }
 
-const printArray = (actionsArray, dispatch, array) => {
-    if (!actionsArray.length) {
-        dispatch(resetCurrentArray());
-        dispatch(setStarted(false));
-    }
-    else {
-        const currentAction = actionsArray.shift();
-        switch (currentAction[0]) {
-            case "currentIndex":
-                dispatch(addCurrentIndex(currentAction[1]));
-                break;
-            case "swapIndex":
-                dispatch(addSwapIndex(currentAction[1]));
-                break;
-            case "resetSwapArray":
-                dispatch(resetSwapArray());
-                break;
-            case "addToSorted":
-                dispatch(addSortedIndex(currentAction[1]));
-                break;
-            case "setArray":
-                dispatch(newArray(currentAction[1]));
-                break;
-            default:
-                break;
-        }
-        setTimeout(() => printArray(actionsArray, dispatch, array), 0);
-    }
-};
-
-const swap = (array, i, j) => {
-    const k = array[i];
-    array[i] = array[j];
-    array[j] = k;
-}
 

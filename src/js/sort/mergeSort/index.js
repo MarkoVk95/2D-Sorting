@@ -1,5 +1,4 @@
-import { setStarted, resetCurrentArray, addCurrentIndex, addSwapIndex, resetSwapArray, addSortedIndex,newArray } from "../../actions";
-
+import { printArray } from '../utilities'
 
 export const mergeSort = (toSortArray, dispatch) => {
     let helper = [...toSortArray],
@@ -50,35 +49,5 @@ const merge = (array, helper, left, middle, right, actionsArray) => {
     for(let i = middle+1; i <=right; i++){
         actionsArray.push(["addToSorted", [i]]);
         actionsArray.push(["setArray", [...array]]);
-    }
-};
-
-const printArray = (actionsArray, dispatch) => {
-    if (!actionsArray.length) {
-        dispatch(resetCurrentArray());
-        dispatch(setStarted(false));
-    }
-    else {
-        const currentAction = actionsArray.shift();
-        switch (currentAction[0]) {
-            case "currentIndex":
-                dispatch(addCurrentIndex(currentAction[1]));
-                break;
-            case "swapIndex":
-                dispatch(addSwapIndex(currentAction[1]));
-                break;
-            case "resetSwapArray":
-                dispatch(resetSwapArray());
-                break;
-            case "addToSorted":
-                dispatch(addSortedIndex(currentAction[1]));
-                break;
-            case "setArray":
-                dispatch(newArray(currentAction[1]));
-                break;
-            default:
-                break;
-        }
-        setTimeout(() => printArray(actionsArray, dispatch), 0);
     }
 };
