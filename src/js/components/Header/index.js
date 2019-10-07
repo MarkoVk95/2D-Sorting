@@ -4,6 +4,7 @@ import { newArray, changeAlgorithm, setStarted, resetSortedArray, resetSwapArray
 import { bubbleSort } from '../../sort/bubbleSort'
 import { mergeSort } from '../../sort/mergeSort';
 import { insertionSort } from '../../sort/insertionSort';
+import { quickSort } from '../../sort/quickSort';
 const mapStateToProps = state => ({
     array: state.array,
     algorithm: state.algorithm,
@@ -35,6 +36,9 @@ const mapDispatchToProps = dispatch => ({
                 break;
             case "Merge Sort":
                 mergeSort(array, dispatch);
+                break;
+            case "Quick Sort":
+                quickSort(array, dispatch);
                 break;
             default:
                 dispatch(setStarted(false));
