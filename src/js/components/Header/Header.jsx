@@ -44,7 +44,7 @@ export default class Header extends Component {
                         <a className={`nav-link ${started && algorithm !== 'Bubble Sort' ? 'text-muted':''} ${algorithm === 'Bubble Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Bubble Sort</a>
                     </li>
                     <li className="nav-item">
-                        <a className={`nav-link ${started && algorithm !== 'Selection Sort'? 'text-muted':''} ${algorithm === 'Selection Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Selection Sort</a>
+                        <a className={`nav-link ${started && algorithm !== 'Insertion Sort'? 'text-muted':''} ${algorithm === 'Insertion Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Insertion Sort</a>
                     </li>
                     <li className="nav-item">
                         <a className={`nav-link ${started && algorithm !== 'Merge Sort' ? 'text-muted':''} ${algorithm === 'Merge Sort' ? 'text-danger' : ''}`} onClick={this.changeAlgorithm} href="#">Merge Sort</a>
