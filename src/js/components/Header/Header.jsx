@@ -53,9 +53,9 @@ export default class Header extends Component {
                         <a className={`nav-link dropdown-toggle ${started && (algorithm !== 'Quick Sort' || algorithm !== '') ? 'text-muted' : ''} ${(algorithm == 'Quick Sort' || algorithm == 'Randomized Quick Sort') ? 'text-danger' : ''}`} href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Quick Sort
                         </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className={`dropdown-item ${started && algorithm !== 'Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Quick Sort' ? 'text-danger' : ''} `} href="#" onClick={this.changeAlgorithm} >Quick Sort</a>
-                            <a className={`dropdown-item ${started && algorithm !== 'Randomized Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Randomized Quick Sort' ? 'text-danger' : ''} `} href="#" onClick={this.changeAlgorithm}>Randomized Quick Sort</a>
+                        <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <a className={`dropdown-item  bg-dark ${started && algorithm !== 'Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Quick Sort' ? 'text-danger' : 'text-light'} `} href="#" onClick={this.changeAlgorithm} >Quick Sort</a>
+                            <a className={`dropdown-item bg-dark ${started && algorithm !== 'Randomized Quick Sort' ? 'text-muted' : ''} ${algorithm == 'Randomized Quick Sort' ? 'text-danger' : 'text-light'} `} href="#" onClick={this.changeAlgorithm}>Randomized Quick Sort</a>
                         </div>
                     </li>
                 </ul>

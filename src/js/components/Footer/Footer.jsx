@@ -24,9 +24,9 @@ export default class Footer extends Component {
                         <a className={`nav-link dropdown-toggle`} href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Theme
                         </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className={`dropdown-item `} href="#" onClick={() => this.changeTheme("white")} >White</a>
-                            <a className={`dropdown-item `} href="#" onClick={() => this.changeTheme("black")} >Black</a>
+                        <div className="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <a className={`dropdown-item text-light bg-dark`} href="#" onClick={() => this.changeTheme("white")} >White</a>
+                            <a className={`dropdown-item text-light bg-dark`} href="#" onClick={() => this.changeTheme("black")} >Black</a>
                         </div>
                     </li>
                 </ul>
